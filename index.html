@@ -19,7 +19,7 @@ h1{font-size:20px;margin:0;font-weight:800}
 .bal{font-weight:800;font-size:20px;display:flex;gap:6px;align-items:center}
 .bal small{font-size:12px;color:var(--mute);font-weight:500}
 nav{display:flex;gap:8px;margin-bottom:16px}
-nav button{flex:1;padding:10px 2px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--mute);font:700 13px inherit;font-family:inherit}
+nav button{flex:1;min-width:0;padding:10px 1px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--mute);font:700 13px inherit;font-family:inherit}
 nav button.on{background:var(--btn);color:var(--btnt);border-color:var(--btn)}
 button{cursor:pointer;font-family:inherit}
 button:focus-visible{outline:3px solid var(--ice);outline-offset:2px}
@@ -109,7 +109,7 @@ nav button.on{background:linear-gradient(135deg,#f3f5ff,#c8d5ff);color:#151b30;b
 .card .em{display:flex;align-items:center;justify-content:center;min-height:104px;font-size:0;transform:translateZ(22px)}
 .card .em .gift-img{width:100px;height:100px;object-fit:contain;filter:drop-shadow(0 12px 12px #0005);animation:model-float 4s ease-in-out infinite}
 .card b{font-size:14px;text-shadow:0 1px 5px #0006}.card .tag{backdrop-filter:blur(8px);border:1px solid #ffffff20}.card .num{background:#0002;border-radius:8px;padding:3px 5px}
-.gift-img{display:block;width:66px;height:66px;object-fit:contain;filter:drop-shadow(0 9px 10px #0007);transform:translateZ(24px);animation:model-float 4.2s ease-in-out infinite}
+.gift-art{position:relative;display:inline-grid;place-items:center;width:66px;height:66px}.gift-art>.gift3d{position:absolute;inset:3px;margin:auto}.gift-img{position:relative;z-index:1;display:block;width:66px;height:66px;object-fit:contain;opacity:0;transition:opacity .18s ease;filter:drop-shadow(0 9px 10px #0007);transform:translateZ(24px);animation:none}.gift-img.loaded{opacity:1}.card .em .gift-art{width:100px;height:100px}.card .em .gift-art .gift-img{width:100px;height:100px}.chip .gift-art{width:65px;height:65px}.chip .gift-art .gift-img{width:65px;height:65px}.it .gift-art{width:65px;height:65px}.it .gift-art .gift-img{width:65px;height:65px}
 .case .ico .gift-img{width:68px;height:68px}.it{font-size:0;background:linear-gradient(145deg,#232d50,#11172d);border-right:1px solid #ffffff10}.it .gift-img{width:65px;height:65px}.win{height:112px;border:1px solid #ffffff15;background:#0a1021}.strip{align-items:center}.it{flex:0 0 84px;height:100%;display:flex;align-items:center;justify-content:center}
 .chip{background:linear-gradient(145deg,#202a4a,#11172d);border-color:#34416a;border-radius:16px;box-shadow:inset 0 1px #ffffff0a,0 7px 16px #0002}.chip i{display:flex;align-items:center;justify-content:center;min-height:70px;font-size:0}.chip .gift-img{width:65px;height:65px}.chip.on{border-color:#72ddff;background:linear-gradient(145deg,#273b60,#17213d);box-shadow:0 0 0 2px #72ddff22}
 .ov{backdrop-filter:blur(14px);background:rgba(3,6,16,.78)}.box{border:1px solid #ffffff1a;background:linear-gradient(145deg,#20294a,#10162c);box-shadow:0 30px 90px #0009;animation:modal-pop .35s cubic-bezier(.2,1.3,.4,1)}
@@ -120,8 +120,9 @@ nav button.on{background:linear-gradient(135deg,#f3f5ff,#c8d5ff);color:#151b30;b
 @keyframes surface-sheen{0%,65%,100%{transform:translateX(-110%)}80%{transform:translateX(110%)}}
 @keyframes card-enter{from{opacity:0;transform:translateY(12px) rotateX(3deg)}to{opacity:1;transform:translateY(0) rotateX(0)}}
 @keyframes modal-pop{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
-@media(max-width:380px){body{padding-left:12px;padding-right:12px}.case .ico{width:65px;height:65px;flex-basis:65px}.case .ico .gift-img{width:58px;height:58px}.bal{font-size:17px}nav{gap:4px}}
+@media(max-width:380px){body{padding-left:12px;padding-right:12px}.case .ico{width:65px;height:65px;flex-basis:65px}.case .ico .gift-img{width:58px;height:58px}.bal{font-size:17px}nav{gap:3px}nav button{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.case,.card,.gift-img,.case .ico,.bonus{animation:none!important;transition:none!important}}
+.market-list{display:flex;flex-direction:column;gap:0}.market-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 2px;border-bottom:1px solid var(--line);font-size:13px}.market-row:last-child{border-bottom:0}.market-row b{white-space:nowrap;color:#8edcff;font-variant-numeric:tabular-nums}.gift-img{backface-visibility:hidden;-webkit-backface-visibility:hidden}.gift-art{flex:0 0 auto}
 
 
 .gift3d{position:relative;display:block;width:60px;height:60px;perspective:500px;filter:drop-shadow(0 10px 8px #0007);transform-style:preserve-3d;animation:model-float 4s ease-in-out infinite}
@@ -136,7 +137,7 @@ nav button.on{background:linear-gradient(135deg,#f3f5ff,#c8d5ff);color:#151b30;b
 </head>
 <body>
 <header><h1>Velora</h1><div class="hr"><a class="ib" href="https://t.me/zewsssse" target="_blank" rel="noopener" aria-label="Предложить идею">💡</a><button class="ib" id="pf" aria-label="Профиль">V</button><div class="bal"><span id="bal">0</span>⭐</div></div></header>
-<nav><button id="t1" class="on">Кейсы</button><button id="t2">Коллекция</button><button id="t4">Игры</button><button id="t3">Ещё</button></nav>
+<nav><button id="t1" class="on">Кейсы</button><button id="t2">Коллекция</button><button id="t4">Игры</button><button id="t5">Рынок</button><button id="t3">Ещё</button></nav>
 <main id="main"></main>
 
 <div id="toast"></div><div class="ov" id="ov"><div class="box" id="box"></div></div>
@@ -153,7 +154,7 @@ m:[["Plush Pepe","🐸",6199]]};
 var GIFTS=[];(function(){var id=0;for(var k in T)T[k].forEach(function(a){GIFTS.push({id:++id,n:a[0],em:a[1],f:a[2],r:k})})})();
 // Public collectible-gift thumbnails. If an asset is unavailable, use a designed 3D placeholder instead of an emoji.
 var GIFT_SLUG={"Lunar Snake":"lunarsnake","Ice Cream":"icecream","Candy Cane":"candycane","Easter Egg":"easteregg","Spiced Wine":"spicedwine","Bow Tie":"bowtie","Santa Hat":"santahat","Snow Globe":"snowglobe","Witch Hat":"witchhat","Jolly Chimp":"jollychimp","Evil Eye":"evileye","Top Hat":"tophat","Crystal Ball":"crystalball","Flying Broom":"flyingbroom","Mad Pumpkin":"madpumpkin","Lucky Locket":"luckylocket","Cupid Charm":"cupidcharm","Eternal Rose":"eternalrose","Toy Bear":"toybear","Genie Lamp":"genielamp","Voodoo Doll":"voodoodoll","Kissed Frog":"kissedfrog","Swiss Watch":"swisswatch","Magic Potion":"magicpotion","Mini Oscar":"minioscar","Perfume Bottle":"perfumebottle","Astral Shard":"astralshard","Loot Bag":"lootbag","Mighty Arm":"mightyarm","Durov’s Glasses":"durovsglasses","Heroic Helmet":"heroichelmet","Precious Peach":"preciouspeach","Scared Cat":"scaredcat","Durov’s Cap":"durovscap","Resistance Dog":"resistancedog","Heart Locket":"heartlocket","Intelligence Cup":"intelligencecup","Algorithm Cup":"algorithmcup","Plush Pepe":"plushpepe"};
-function giftVisual(name,extra){var slug=GIFT_SLUG[name];if(!slug)return '<span class="gift3d" aria-hidden="true"><i></i><b></b></span>';return '<img class="gift-img '+(extra||'')+'" src="https://fragment.com/file/gifts/'+slug+'/thumb.webp" alt="'+String(name).replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'" loading="lazy" onerror="this.outerHTML=\'<span class=\\\'gift3d\\\' aria-hidden=\\\'true\\\'><i></i><b></b></span>\'">'}
+function giftVisual(name,extra){var slug=GIFT_SLUG[name];var alt=String(name).replace(/&/g,"&amp;").replace(/"/g,"&quot;");var fallback='<span class="gift3d" aria-hidden="true"><i></i><b></b></span>';if(!slug)return fallback;return '<span class="gift-art">'+fallback+'<img class="gift-img '+(extra||'')+'" src="https://fragment.com/file/gifts/'+slug+'/thumb.webp" alt="'+alt+'" loading="lazy" decoding="async" onload="this.classList.add(&quot;loaded&quot;)" onerror="this.remove()"></span>'}
 function caseVisual(name,emoji){var fake={"Коробка сюрпризов":"box","Праздничный подарок":"present","Мифическая коробка":"gem"}[name];if(fake)return '<span class="gift3d gift3d-'+fake+'" aria-hidden="true"><i></i><b></b></span>';return '<span class="gift3d" aria-hidden="true"><i></i><b></b></span>';}
 var CASES=[
 {id:"b",n:"Коробка сюрпризов",em:"📦",price:0,d:"Бесплатная коробка с коллекционными подарками",odds:{c:85,r:14,e:1}},
@@ -161,6 +162,7 @@ var CASES=[
 {id:"g",n:"Мифическая коробка",em:"💎",price:0,d:"Редкие и мифические предметы коллекции",odds:{r:15,e:62,l:22,m:1}}];
 var BACK=[["Лазурь","#2aa7d0","#1b5c9e"],["Закат","#f0804d","#c0307a"],["Мята","#3fc28f","#1f7a6b"],["Сирень","#a07cf0","#5a3fb8"],["Вишня","#e5484d","#8a1f3d"],["Графит","#6b7490","#2c3350"]];
 var S={bal:500,inv:[],bonusAt:0,sub:false,tab:1,g:"hub",nick:"",fortAt:0,guessAt:0,opened:0};
+var MAX_GIFTS=100;
 try{var raw=localStorage.getItem("giftcases_safe_v1");if(raw){var p=JSON.parse(raw);if(p&&typeof p.bal==="number")S=Object.assign(S,p)}}catch(e){}
 function save(){try{localStorage.setItem("giftcases_safe_v1",JSON.stringify({bal:S.bal,inv:S.inv,bonusAt:S.bonusAt,sub:S.sub,nick:S.nick,fortAt:S.fortAt,guessAt:S.guessAt,opened:S.opened}))}catch(e){}}
 var $=function(i){return document.getElementById(i)};
@@ -173,7 +175,8 @@ function more(){var h='';
 if(!S.sub)h+=subCard();
 h+='<div class="case"><div class="top"><div class="ico">💡</div><div><h2>Есть идея для игры?</h2><p>Новые кейсы, подарки и режимы</p></div></div><a class="open lnk" href="'+IDEA+'" target="_blank" rel="noopener">Предложить идею</a></div>';
 
-h+='<p class="det">Это фанатская коллекционная мини-игра. Все награды и ⭐ — виртуальные игровые очки: их нельзя купить, продать или обменять на деньги.</p>';return h}
+h+='<div class="case"><div class="top"><div class="ico">💎</div><div><h2>Поддержать Velora</h2><p>Донат на развитие проекта через Tonkeeper</p></div></div><div class="addr" id="wallet">UQCQ8Ds4h7g1VqFKOd-baNWWw6nFbBAzraCiy84lrRVN0Zec</div><button class="open" id="copywallet">Скопировать адрес кошелька</button></div>';
+h+='<p class="det">Это фанатская коллекционная мини-игра. Внутренние ⭐ и продажи внутри Velora — виртуальные и не переводят реальные подарки Telegram. Для настоящей торговли нужен сервер и подключение к официальным Telegram-механизмам.</p>';return h}
 
 function roll(c){var x=Math.random()*100,a=0,k="c";for(var r in c.odds){a+=c.odds[r];if(x<a){k=r;break}}
 var pool=GIFTS.filter(function(g){return g.r===k});var g=pool[Math.floor(Math.random()*pool.length)];
@@ -184,7 +187,7 @@ function cardHtml(it,tag){var g=gift(it.gid),b=BACK[it.bk];
 return '<div class="card'+("elm".indexOf(g.r)>=0?" sh":"")+'" style="background:linear-gradient(160deg,'+b[1]+','+b[2]+')"><div class="tag">'+RAR[g.r].n+'</div><div class="num">№'+it.num+'</div><div class="em">'+giftVisual(g.n)+'</div><b>'+g.n+'</b><span>Фон: '+b[0]+'</span></div>'}
 
 function render(){
-$("bal").textContent=S.bal;$("t1").className=S.tab===1?"on":"";$("t2").className=S.tab===2?"on":"";$("t3").className=S.tab===3?"on":"";$("t4").className=S.tab===4?"on":"";
+$("bal").textContent=S.bal;$("t1").className=S.tab===1?"on":"";$("t2").className=S.tab===2?"on":"";$("t3").className=S.tab===3?"on":"";$("t4").className=S.tab===4?"on":"";$("t5").className=S.tab===6?"on":"";
 var h="";
 if(S.tab===1){
 var left=BONUS_MS-(Date.now()-S.bonusAt);
@@ -193,9 +196,9 @@ h+=fortCard();if(!S.sub)h+=subCard();
 CASES.forEach(function(c){
 var bar="",lg="";for(var r in c.odds){bar+='<i style="width:'+c.odds[r]+'%;background:'+RAR[r].col+'"></i>';lg+='<span>'+RAR[r].n+" "+c.odds[r]+"%</span>"}
 h+='<div class="case"><div class="top"><div class="ico">'+caseVisual(c.n,c.em)+'</div><div><h2>'+c.n+'</h2><p>'+c.d+'</p></div></div><div class="odds">'+bar+'</div><div class="legend">'+lg+'</div><button class="open" data-c="'+c.id+'">Открыть бесплатно</button></div>'});
-}else if(S.tab===4){h+=games()}else if(S.tab===5){h+=profile()}else if(S.tab===3){h+=more()}else{
+}else if(S.tab===4){h+=games()}else if(S.tab===5){h+=profile()}else if(S.tab===6){h+=marketView()}else if(S.tab===3){h+=more()}else{
 var u={};S.inv.forEach(function(i){u[i.gid]=1});
-h+='<div class="stat">Собрано видов: '+Object.keys(u).length+' из '+GIFTS.length+'. Подарков: '+S.inv.length+'</div>';
+h+='<div class="stat">Собрано видов: '+Object.keys(u).length+' из '+GIFTS.length+'. Подарков: '+S.inv.length+' / '+MAX_GIFTS+'</div>';
 if(!S.inv.length)h+='<div class="empty">Пока пусто. Откройте первый кейс.</div>';
 else{h+='<div class="grid">';S.inv.slice().reverse().forEach(function(i){h+='<button class="card" style="padding:0;background:none" data-u="'+i.uid+'">'+cardHtml(i)+'</button>'});h+='</div>'}}
 $("main").innerHTML=h;
@@ -205,9 +208,11 @@ $("t1").onclick=function(){S.tab=1;render()};
 $("t2").onclick=function(){S.tab=2;render()};
 $("t3").onclick=function(){S.tab=3;render()};
 $("t4").onclick=function(){S.tab=4;S.g="hub";GS=null;render()};
+$("t5").onclick=function(){S.tab=6;render()};
 $("pf").onclick=function(){S.tab=5;render()};
 $("main").onclick=function(e){
 var t=e.target.closest("button");if(!t||busy)return;
+if(t.id==="copywallet"){var wa="UQCQ8Ds4h7g1VqFKOd-baNWWw6nFbBAzraCiy84lrRVN0Zec";if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(wa).then(function(){toast("Адрес скопирован")}).catch(function(){sel($("wallet"));toast("Выделил адрес — скопируй вручную")});else{sel($("wallet"));toast("Выделил адрес — скопируй вручную")}return}
 if(t.id==="bn"){S.bal+=300;S.bonusAt=Date.now();save();render();return}
 if(gameClick(t))return;
 if(t.id==="sub"){if(!S.sub){S.sub=true;S.bal+=333;save()}render();return}
@@ -219,12 +224,13 @@ function closeOv(){$("ov").className="ov";busy=false;render()}
 function sellVal(it){return Math.round(gift(it.gid).f)}
 function showItem(it,fresh){
 var g=gift(it.gid),v=sellVal(it);
-$("box").innerHTML='<div class="res pop">'+cardHtml(it)+'<p class="det">Редкость: '+RAR[g.r].n+'. Серийный номер №'+it.num+'. Предмет можно оставить в коллекции.</p><div class="row"><button class="p" id="ok">'+(fresh?"Оставить":"Закрыть")+'</button></div></div>';
+$("box").innerHTML='<div class="res pop">'+cardHtml(it)+'<p class="det">Редкость: '+RAR[g.r].n+'. Серийный номер №'+it.num+'. Внутренняя оценка: '+v+' ⭐. Это игровые очки, не рыночная цена Telegram.</p><div class="row"><button class="p" id="ok">'+(fresh?"Оставить":"Закрыть")+'</button><button id="sellitem">Продать за '+v+' ⭐</button></div></div>';
 $("ov").className="ov on";busy=true;
-$("ok").onclick=closeOv;if(fresh&&"elm".indexOf(g.r)>=0)confetti(g.r==="m"?90:36);
+$("ok").onclick=closeOv;$("sellitem").onclick=function(){var ix=S.inv.findIndex(function(x){return x.uid===it.uid});if(ix>=0){S.inv.splice(ix,1);S.bal+=v;save();toast("Продано за "+v+" игровых ⭐");closeOv()} };if(fresh&&"elm".indexOf(g.r)>=0)confetti(g.r==="m"?90:36);
 }
 
 function openCase(c){
+if(S.inv.length>=MAX_GIFTS){toast("Коллекция заполнена: максимум 100 подарков. Продайте или удалите один.");return}
 busy=true;
 var win=roll(c);S.inv.push(win);S.opened++;save();$("bal").textContent=S.bal;
 var W=84,N=40,WIN=34,items=[];
@@ -285,6 +291,14 @@ return h+'<div class="stat">Вопрос '+(GS.q+1)+' из 5. У какого п
 function games(){if(S.g==="mine")return mineView();if(S.g==="craft")return craftView();if(S.g==="guess")return guessView();
 function c(g,e,n,d){return '<button class="case" data-g="'+g+'" style="width:100%;text-align:left;color:var(--ink);font-family:inherit"><div class="top"><div class="ico">'+e+'</div><div><h2>'+n+'</h2><p>'+d+'</p></div></div></button>'}
 return c("mine","💣","Сапёр","Бесплатная головоломка на удачу и внимательность")+c("craft","⚗️","Крафт подарков","Три подарка в один новый")+c("guess","⚖️","Что дороже?","Сравни цены подарков, +40 ⭐ за ответ")}
+
+var MARKET=[
+["Algorithm Cup",3333],["Intelligence Cup",3099],["Resistance Dog",1500],["Durov’s Glasses",230],["Mighty Arm",150],["Astral Shard",149],["Loot Bag",130],["Ion Gem",79],["Mini Oscar",78],["Artisan Brick",75],["Swiss Watch",75],["Gem Signet",65],["Low Rider",62],["Bonded Ring",46],["Toy Bear",38],["Diamond Ring",33],["Bling Binkie",30],["Electric Skull",30],["Rare Bird",30],["Khabib’s Papakha",29],["Cupid Charm",23]
+];
+function marketView(){var h='<div class="case"><div class="top"><div class="ico">📈</div><div><h2>Рынок Telegram Gifts</h2><p>Снимок минимальных объявлений · 23 октября 2026</p></div></div><p class="det" style="margin-top:12px">Это минимальная цена предложения (floor) по коллекции, а не гарантированная цена продажи конкретного подарка. Фон, модель, символ, номер, валюта и комиссия влияют на стоимость. Цены динамические и не обновляются автоматически в этой статической версии.</p><a class="open" href="https://tggifts.com/floors" target="_blank" rel="noopener">Проверить актуальные цены</a><a class="open sec" href="https://telegram.org/blog/gift-marketplace-and-more" target="_blank" rel="noopener">Как работает маркетплейс Telegram</a></div><div class="case"><h2 style="margin:0 0 12px">Минимальные цены коллекций</h2><div class="market-list">';
+MARKET.forEach(function(x,i){h+='<div class="market-row"><span>'+x[0]+'</span><b>'+x[1].toLocaleString('en-US')+' GRAM</b></div>'});
+h+='</div><p class="det" style="margin-top:12px">Источник снимка: TG Gifts Floors, обновление 23.10.2026 13:37 UTC. цены в GRAM (название единицы у трекера; исторически TON) в этой таблице — внешний ориентир; продажа подарка внутри Velora пока только обменивает виртуальный предмет на игровые ⭐.</p></div><div class="case"><h2 style="margin:0 0 8px">Коллекция</h2><p class="det">Лимит хранения — '+S.inv.length+' / '+MAX_GIFTS+' подарков.</p><button class="open" id="tocol">Открыть коллекцию</button></div>';return h}
+
 function profile(){var val=0,u={};S.inv.forEach(function(i){val+=sellVal(i);u[i.gid]=1});
 var top=S.inv.slice().sort(function(a,b){return sellVal(b)-sellVal(a)}).slice(0,4);
 function t(b,l){return '<div><b>'+b+'</b><span>'+l+'</span></div>'}
